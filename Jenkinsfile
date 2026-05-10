@@ -28,8 +28,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'docker rm mynginx || true'
-                sh 'docker run -d -p 80:80 dhusinth123/mynginx:latest'
+                sh 'docker rm -f mynginx || true'
+                sh 'docker run -d -p 80:80 --name mynginx dhusinth123/mynginx:latest'
             }
         }
     }
